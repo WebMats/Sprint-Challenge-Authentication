@@ -8,7 +8,9 @@ export default class Login extends Component {
         if (!username || !password) {
             return
         }
-        this.context.login(username, password);
+        this.context.login(username, password, `api/login`);
+        this.usernameInput.current.value = ''
+        this.passwordInput.current.value = ''
     }
 
   render() {

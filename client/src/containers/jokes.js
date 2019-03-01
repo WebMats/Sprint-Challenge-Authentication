@@ -6,7 +6,6 @@ export default class Jokes extends Component {
 
     fetchJokes = () => {
         axios.get('/api/jokes', {headers: {"Authorization": localStorage.getItem('token') }}).then(({data: jokes}) => {
-            console.log(jokes)
             this.setState({jokes})
         }).catch(err => {
             console.log(err)

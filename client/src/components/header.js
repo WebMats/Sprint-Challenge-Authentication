@@ -16,7 +16,7 @@ const header = () => (
                       {authorized && <li className="nav-item"><NavLink to="/jokes" className="nav-link">Jokes</NavLink></li>}
                       {authorized && <li className="nav-item"><NavLink to="/logout" className="nav-link">Logout</NavLink></li>}
                       {!authorized && <li className="nav-item"><NavLink to="/" className="nav-link">Login</NavLink></li>}
-                      {!authorized && <li className="nav-item"><NavLink to="/signup" className="nav-link">Signup</NavLink></li>}
+                      {!authorized && <li className="nav-item"><NavLink to="/register" className="nav-link">Signup</NavLink></li>}
                     </ul>
                 </div>
             )}
