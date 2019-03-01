@@ -25,7 +25,7 @@ async function register(req, res) {
         const newUser = { username, password: hash }
         const [id] = await usersDB('users').insert(newUser);
         const token = jwt.sign({userId: id, username}, jwtKey, { expiresIn: '1hr'});
-        res.status(201).json({token, tokenExpiration: 60, user: {username , id}})
+        res.status(201).json({token, expiresIn: 60, user: {username , id}})
       }).catch((err) => {
         console.log(err);
         res.status(500).json({errorMessage: "Could not register the new user."})
@@ -52,7 +52,7 @@ async function login(req, res) {
       return res.status(500).json({errorMessage: "Could not authenticate user."})
     } else {
       const token = jwt.sign({userId: foundUser.id, username}, jwtKey, { expiresIn: '1hr'});
-      res.status(201).json({token, tokenExpiration: 60, user: {username , id: foundUser.id}})
+      res.status(201).json({token, expiresIn: 60, user: {username , id: foundUser.id}})
     }
   } catch (err) {
     console.log(err)
